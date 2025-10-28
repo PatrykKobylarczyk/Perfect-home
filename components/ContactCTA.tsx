@@ -3,7 +3,6 @@ import Link from "next/link";
 export default function ContactCTA() {
   return (
     <section
-      data-scroll-section
       id="kontakt"
       className="py-16 px-6 md:px-20 bg-black text-white text-center"
     >
