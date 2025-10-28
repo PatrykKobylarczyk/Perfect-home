@@ -96,7 +96,7 @@ export default function Navbar() {
                 animate={{ rotateX: 0, y: 0, opacity: 1 }}
                 transition={{
                   duration: 0.2,
-                  delay: 0.3 + index * 0.2,
+                  delay: 0.3 + index * 0.1,
                   ease: "easeInOut",
                 }}
                 className="text-xl uppercase font-medium text-white text-opacity-80 hover:text-opacity-100 transition-colors mb-4"
