@@ -1,30 +1,46 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-[80vh] flex items-center justify-center text-white text-center">
-      <Image
-        src="/assets/images/hero.jpg"
-        alt="Hero background"
-        fill
-        className="object-cover object-center"
-        priority
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-50" />
-      <div className="relative z-10 px-6">
-        <h1 className="text-4xl md:text-6xl font-bold uppercase">
-          Znajdź idealną nieruchomość
+    <section className="relative w-full h-screen overflow-hidden">
+      {/* Video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/assets/video/video.mov" type="video/mp4" />
+        Twoja przeglądarka nie obsługuje wideo.
+      </video>
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/50 to-black/80 z-10" />
+
+      {/* Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white/80 px-6">
+        <div className="relative w-32 h-32">
+          <Image
+            src="/assets/images/logo-black.png"
+            alt="Perfect Home Logo"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+        <h1 className="text-3xl md:text-5xl font-bold">
+          Architektura luksusu. Prostota formy.
         </h1>
         <p className="mt-4 text-lg md:text-xl font-light">
-          Mieszkania, domy i działki w Twoim zasięgu
+          Biuro nieruchomości, które łączy estetykę, precyzję i skuteczność.
         </p>
-        <Link
-          href="/nieruchomosci"
+        <a
+          href="#oferty"
           className="mt-6 inline-block px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 uppercase text-sm md:text-base"
         >
           Zobacz oferty
-        </Link>
+        </a>
       </div>
     </section>
   );

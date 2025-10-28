@@ -7,7 +7,7 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="py-16 px-6 md:px-20 bg-white">
+    <section className="py-16 px-6 md:px-20 ">
       <h2 className="text-3xl md:text-4xl font-bold uppercase text-center mb-10">
         Dlaczego warto
       </h2>
@@ -15,7 +15,7 @@ export default function Benefits() {
         {benefits.map((item, index) => (
           <li
             key={index}
-            className="bg-gray-100 p-6 rounded shadow text-center"
+            className="bg-[#101015] p-6 rounded shadow text-center"
           >
             {item}
           </li>

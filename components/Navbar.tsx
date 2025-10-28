@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -22,19 +23,27 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow" : "bg-transparent"
+        scrolled ? "bg-black bg-opacity-80 shadow" : "bg-black bg-opacity-40"
       }`}
     >
       <nav className="flex items-center justify-between px-6 md:px-20 py-4">
-        <div className="text-xl font-bold uppercase">Perfect Home</div>
+        <div className="relative w-15 h-15 z-100">
+          <Image
+            src="/assets/images/logo-black.png"
+            alt="Perfect Home Logo"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
 
         {/* Desktop menu */}
-        <ul className="hidden md:flex gap-8 text-sm uppercase font-medium">
+        <ul className="hidden md:flex gap-8 text-sm uppercase font-medium text-white text-opacity-80">
           {navLinks.slice(0, 3).map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
-                className="hover:text-gray-500 transition-colors"
+                className="hover:text-opacity-100 transition-opacity"
               >
                 {link.label}
               </a>
@@ -44,7 +53,7 @@ export default function Navbar() {
 
         <a
           href="#kontakt"
-          className="hidden md:inline-block px-6 py-2 border border-black text-black hover:bg-black hover:text-white transition-colors duration-300 uppercase text-sm"
+          className="hidden md:inline-block px-6 py-2 border border-white text-white text-opacity-80 hover:text-opacity-100 hover:bg-white hover:text-black transition-colors duration-300 uppercase text-sm"
         >
           Kontakt
         </a>
@@ -56,17 +65,17 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`absolute w-6 h-0.5 bg-black transition-transform duration-300 ${
+            className={`absolute w-6 h-0.5 bg-white transition-transform duration-300 ${
               menuOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
             }`}
           />
           <span
-            className={`absolute w-6 h-0.5 bg-black transition-opacity duration-300 ${
+            className={`absolute w-6 h-0.5 bg-white transition-opacity duration-300 ${
               menuOpen ? "opacity-0" : "opacity-100"
             }`}
           />
           <span
-            className={`absolute w-6 h-0.5 bg-black transition-transform duration-300 ${
+            className={`absolute w-6 h-0.5 bg-white transition-transform duration-300 ${
               menuOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
             }`}
           />
@@ -81,7 +90,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center"
+            className="fixed inset-0 bg-black bg-opacity-90 z-40 flex flex-col items-center justify-center"
           >
             {navLinks.map((link, index) => (
               <motion.a
@@ -95,7 +104,7 @@ export default function Navbar() {
                   delay: 0.5 + index * 0.2,
                   ease: "easeOut",
                 }}
-                className="text-xl uppercase font-medium text-black hover:text-gray-500 transition-colors mb-4"
+                className="text-xl uppercase font-medium text-white text-opacity-80 hover:text-opacity-100 transition-colors mb-4"
               >
                 {link.label}
               </motion.a>

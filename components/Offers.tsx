@@ -5,26 +5,30 @@ const offers = [
   {
     id: "apartments",
     title: "Mieszkania",
-    image: "/assets/images/apartment.jpg",
+    image: "/assets/images/1.jpg",
   },
   {
     id: "houses",
     title: "Domy",
-    image: "/assets/images/house.jpg",
+    image: "/assets/images/2.jpg",
   },
   {
     id: "lands",
     title: "Działki",
-    image: "/assets/images/ground.jpg",
+    image: "/assets/images/3.jpg",
   },
 ];
 
 export default function Offers() {
   return (
-    <section id="oferty" className="py-16 px-6 md:px-20 bg-gray-100">
-      <h2 className="text-3xl md:text-4xl font-bold uppercase text-center mb-10">
-        Nasze oferty
+    <section id="oferty" className="py-16 px-6 md:px-[20vw]">
+      <h2 className="text-3xl md:text-4xl font-bold uppercase text-left mb-2">
+        Wybrane oferty
       </h2>
+      <p className="text-white/80 font-extralight mb-10">
+        Kuracja przestrzeni mieszkalnych i inwestycyjnych w najlepszych
+        lokalizacjach.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {offers.map((offer) => (
           <div
@@ -35,6 +39,7 @@ export default function Offers() {
               src={offer.image}
               alt={offer.title}
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-black bg-opacity-40 z-10" />

@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="pl">
       <body>
         <Navbar />
-        <div className="pt-[80px]">{children}</div> {/* odstęp pod navbar */}
+        <div className="">{children}</div> {/* odstęp pod navbar */}
         <Footer />
       </body>
     </html>

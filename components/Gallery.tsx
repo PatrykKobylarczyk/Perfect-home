@@ -4,12 +4,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const galleryImages = [
-  "/assets/images/gallery1.jpg",
-  "/assets/images/gallery2.jpg",
-  "/assets/images/gallery3.jpg",
-  "/assets/images/gallery4.jpg",
-  "/assets/images/gallery5.jpg",
-  "/assets/images/gallery6.jpg",
+  "/assets/images/1.jpg",
+  "/assets/images/2.jpg",
+  "/assets/images/3.jpg",
+  "/assets/images/4.jpg",
+  "/assets/images/6.jpg",
+  "/assets/images/7.jpg",
 ];
 
 export default function Gallery() {
@@ -34,7 +34,7 @@ export default function Gallery() {
   }, [instanceRef]);
 
   return (
-    <section id="galeria" className="py-16 px-6 md:px-20 bg-gray-100">
+    <section id="galeria" className="py-16 px-6 md:px-20">
       <h2 className="text-3xl md:text-4xl font-bold uppercase text-center mb-10">
         Galeria
       </h2>
@@ -45,9 +45,10 @@ export default function Gallery() {
             className="keen-slider__slide relative h-64 overflow-hidden rounded shadow group"
           >
             <Image
-              src={src}
+              src="/assets/images/1.jpg"
               alt={`Galeria ${index + 1}`}
               fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-colors duration-300" />
