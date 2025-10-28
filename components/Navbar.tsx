@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import "locomotive-scroll/dist/locomotive-scroll.css";
+import Link from "next/link";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,7 +29,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="flex items-center justify-between px-6 md:px-20 py-4">
-        <div className="relative w-15 h-15 z-100">
+        <Link href="#" className="relative w-15 h-15 z-100">
           <Image
             src="/assets/images/logo-black.png"
             alt="Perfect Home Logo"
@@ -36,7 +37,7 @@ export default function Navbar() {
             className="object-contain"
             priority
           />
-        </div>
+        </Link>
 
         {/* Desktop menu */}
         <ul className="hidden md:flex items-center gap-8 text-sm uppercase font-medium text-white text-opacity-80">
