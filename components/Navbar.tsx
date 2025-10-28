@@ -1,17 +1,23 @@
 "use client";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navLinks = [
+    { label: "Oferty", href: "#oferty" },
+    { label: "O nas", href: "#onas" },
+    { label: "Galeria", href: "#galeria" },
+    { label: "Kontakt", href: "#kontakt" },
+  ];
 
   return (
     <header
@@ -21,33 +27,82 @@ export default function Navbar() {
     >
       <nav className="flex items-center justify-between px-6 md:px-20 py-4">
         <div className="text-xl font-bold uppercase">Perfect Home</div>
+
+        {/* Desktop menu */}
         <ul className="hidden md:flex gap-8 text-sm uppercase font-medium">
-          <li>
-            <a href="#oferty" className="hover:text-gray-500 transition-colors">
-              Oferty
-            </a>
-          </li>
-          <li>
-            <a href="#onas" className="hover:text-gray-500 transition-colors">
-              O nas
-            </a>
-          </li>
-          <li>
-            <a
-              href="#galeria"
-              className="hover:text-gray-500 transition-colors"
-            >
-              Galeria
-            </a>
-          </li>
+          {navLinks.slice(0, 3).map((link) => (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                className="hover:text-gray-500 transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
+
         <a
           href="#kontakt"
           className="hidden md:inline-block px-6 py-2 border border-black text-black hover:bg-black hover:text-white transition-colors duration-300 uppercase text-sm"
         >
           Kontakt
         </a>
+
+        {/* Hamburger / Close icon */}
+        <button
+          className="md:hidden relative w-8 h-8 z-50 flex items-center justify-center"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`absolute w-6 h-0.5 bg-black transition-transform duration-300 ${
+              menuOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
+            }`}
+          />
+          <span
+            className={`absolute w-6 h-0.5 bg-black transition-opacity duration-300 ${
+              menuOpen ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`absolute w-6 h-0.5 bg-black transition-transform duration-300 ${
+              menuOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
+            }`}
+          />
+        </button>
       </nav>
+
+      {/* Fullscreen menu sliding from right */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center"
+          >
+            {navLinks.map((link, index) => (
+              <motion.a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                initial={{ rotateX: 90, y: 20, opacity: 0 }}
+                animate={{ rotateX: 0, y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.5 + index * 0.2,
+                  ease: "easeOut",
+                }}
+                className="text-xl uppercase font-medium text-black hover:text-gray-500 transition-colors mb-4"
+              >
+                {link.label}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
