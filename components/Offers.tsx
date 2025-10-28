@@ -21,7 +21,7 @@ const offers = [
 
 export default function Offers() {
   return (
-    <section className="py-16 px-6 md:px-20 bg-gray-100">
+    <section id="oferty" className="py-16 px-6 md:px-20 bg-gray-100">
       <h2 className="text-3xl md:text-4xl font-bold uppercase text-center mb-10">
         Nasze oferty
       </h2>
