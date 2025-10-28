@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section
+      data-scroll-section
+      className="relative w-full h-screen overflow-hidden"
+    >
       {/* Video background */}
       <video
         autoPlay

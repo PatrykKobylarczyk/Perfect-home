@@ -21,7 +21,11 @@ const offers = [
 
 export default function Offers() {
   return (
-    <section id="oferty" className="py-16 px-6 md:px-[20vw] scroll-mt-[70px]">
+    <section
+      data-scroll-section
+      id="oferty"
+      className="py-16 px-6 md:px-[20vw] scroll-mt-[70px]"
+    >
       <h2 className="text-3xl md:text-4xl font-bold uppercase text-left mb-2">
         Wybrane oferty
       </h2>
