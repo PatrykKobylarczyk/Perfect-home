@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="onas" className="py-16 px-6 md:px-[20vw]">
+    <section id="onas" className="py-16 px-6 md:px-[20vw] scroll-mt-[70px]">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
         <div className="flex-1">
           <h2 className="text-3xl md:text-4xl font-bold uppercase mb-6">

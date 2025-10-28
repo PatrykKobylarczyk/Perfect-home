@@ -34,7 +34,7 @@ export default function Gallery() {
   }, [instanceRef]);
 
   return (
-    <section id="galeria" className="py-16 px-6 md:px-20">
+    <section id="galeria" className="py-16 px-6 md:px-20 scroll-mt-[70px]">
       <h2 className="text-3xl md:text-4xl font-bold uppercase text-center mb-10">
         Galeria
       </h2>

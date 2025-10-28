@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import "locomotive-scroll/dist/locomotive-scroll.css";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +24,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black bg-opacity-80 shadow" : "bg-black bg-opacity-40"
+        scrolled ? "bg-black/80 shadow" : "bg-black/70"
       }`}
     >
       <nav className="flex items-center justify-between px-6 md:px-20 py-4">
@@ -38,7 +39,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop menu */}
-        <ul className="hidden md:flex gap-8 text-sm uppercase font-medium text-white text-opacity-80">
+        <ul className="hidden md:flex items-center gap-8 text-sm uppercase font-medium text-white text-opacity-80">
           {navLinks.slice(0, 3).map((link) => (
             <li key={link.label}>
               <a
@@ -49,14 +50,13 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <a
+            href="#kontakt"
+            className="hidden md:inline-block px-6 py-2 border border-white text-white text-opacity-80 hover:text-opacity-100 hover:bg-white hover:text-black transition-colors duration-300 uppercase text-sm"
+          >
+            Kontakt
+          </a>
         </ul>
-
-        <a
-          href="#kontakt"
-          className="hidden md:inline-block px-6 py-2 border border-white text-white text-opacity-80 hover:text-opacity-100 hover:bg-white hover:text-black transition-colors duration-300 uppercase text-sm"
-        >
-          Kontakt
-        </a>
 
         {/* Hamburger / Close icon */}
         <button
@@ -100,9 +100,9 @@ export default function Navbar() {
                 initial={{ rotateX: 90, y: 20, opacity: 0 }}
                 animate={{ rotateX: 0, y: 0, opacity: 1 }}
                 transition={{
-                  duration: 0.6,
-                  delay: 0.5 + index * 0.2,
-                  ease: "easeOut",
+                  duration: 0.2,
+                  delay: 0.3 + index * 0.2,
+                  ease: "easeInOut",
                 }}
                 className="text-xl uppercase font-medium text-white text-opacity-80 hover:text-opacity-100 transition-colors mb-4"
               >

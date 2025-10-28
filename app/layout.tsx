@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl">
+    <html lang="pl" className="scroll-smooth">
       <body>
         <Navbar />
         <div className="">{children}</div> {/* odstęp pod navbar */}

@@ -1,13 +1,15 @@
+"use client";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Benefits from "@/components/Benefits";
 import ContactCTA from "@/components/ContactCTA";
 import Offers from "@/components/Offers";
 import Gallery from "@/components/Gallery";
+import { useEffect } from "react";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col w-full">
+    <main className="flex flex-col w-full ">
       <Hero />
       <Offers />
       <About />
