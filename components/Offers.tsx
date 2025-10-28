@@ -46,12 +46,11 @@ export default function Offers() {
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-40 z-10" />
+            <div className="absolute inset-0 bg-black/10 z-10" />
             <div className="absolute z-20 bottom-6 left-6 text-white">
-              {/* <h3 className="text-2xl font-bold uppercase">{offer.title}</h3> */}
               <Link
                 href={`/nieruchomosci/${offer.id}/sprzedaz`}
-                className="mt-2 inline-block px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 text-sm uppercase"
+                className="mt-2 inline-block px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 text-sm md:text-[12px] uppercase"
               >
                 Zobacz więcej
               </Link>

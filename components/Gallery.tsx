@@ -49,13 +49,13 @@ export default function Gallery() {
             className="keen-slider__slide relative h-64 overflow-hidden rounded shadow group"
           >
             <Image
-              src="/assets/images/1.jpg"
+              src={src}
               alt={`Galeria ${index + 1}`}
               fill
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-colors duration-300" />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-opacity-40 transition-colors duration-300" />
           </div>
         ))}
       </div>
